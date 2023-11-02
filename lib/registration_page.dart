@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'Widgets/Login_registration.dart';
+import 'Widgets/login_registration.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -53,22 +53,12 @@ Container registerHomeBox(BuildContext context) {
         const SizedBox(
           height: 15,
         ),
-        forgotPasswordText(context),
+        haveAnAccount(context),
       ],
     ),
   );
 }
 
-GestureDetector forgotPasswordText(BuildContext context) {
-  return GestureDetector(
-    child: const Text("Already have an account ?",
-        style: TextStyle(
-            color: Colors.black, fontSize: 14, fontWeight: FontWeight.w500)),
-    onTap: () {
-      Navigator.pop(context);
-    },
-  );
-}
 void register(BuildContext context){
   //What to do when you register
 }

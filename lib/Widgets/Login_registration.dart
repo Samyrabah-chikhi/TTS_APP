@@ -1,5 +1,30 @@
 import 'package:flutter/material.dart';
 
+//Home Page templates :
+
+Scaffold loginRegisterPages(String pictures,BuildContext context,Function(BuildContext) homeBox){
+  return Scaffold(
+      backgroundColor: const Color(0xffA5978B),
+      body: Center(
+        child: Stack(
+          children: [
+            Image.asset(
+              pictures,
+              height: 1200,
+              fit: BoxFit.cover,
+            ),
+            Align(
+              alignment: const FractionalOffset(0.5, 0.35),
+              child: homeBox(context),
+            ),
+          ],
+        ),
+      ),
+    );
+}
+
+//Buttons :
+
 Container fieldButtons(String name) {
   return Container(
     width: 230,
@@ -22,6 +47,29 @@ Container fieldButtons(String name) {
     ),
   );
 }
+
+GestureDetector logInButton() {
+  return GestureDetector(
+    child: Container(
+      width: 245,
+      height: 50,
+      decoration: BoxDecoration(
+        color: const Color(0xff8D5B4C),
+        border: Border.all(),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: const Center(
+        child:
+            Text("Log in", style: TextStyle(color: Colors.black, fontSize: 18)),
+      ),
+    ),
+    onTap: () {
+      print("Logging in");
+      //Logging in logic
+    },
+  ); 
+}
+
 
 GestureDetector registrationButton(BuildContext context,Function(BuildContext) whenTap) {
   return GestureDetector(
@@ -55,23 +103,29 @@ Container dividerLine() {
       ));
 }
 
-Scaffold loginRegisterPages(String pictures,BuildContext context,Function(BuildContext) homeBox){
-  return Scaffold(
-      backgroundColor: const Color(0xffA5978B),
-      body: Center(
-        child: Stack(
-          children: [
-            Image.asset(
-              pictures,
-              height: 1200,
-              fit: BoxFit.cover,
-            ),
-            Align(
-              alignment: const FractionalOffset(0.5, 0.35),
-              child: homeBox(context),
-            ),
-          ],
-        ),
-      ),
-    );
+
+GestureDetector haveAnAccount(BuildContext context) {
+  return GestureDetector(
+    child: const Text("Already have an account ?",
+        style: TextStyle(
+            color: Colors.black, fontSize: 14, fontWeight: FontWeight.w500)),
+    onTap: () {
+      Navigator.pop(context);
+    },
+  );
+}
+
+//Same Buttons : to be reffactored
+
+
+GestureDetector forgotPasswordText() {
+  return GestureDetector(
+    child: const Text("Forgot password ?",
+        style: TextStyle(
+            color: Colors.black, fontSize: 14, fontWeight: FontWeight.w500)),
+    onTap: () {
+      print("Nsit koulch");
+      //Forgetting password logic
+    },
+  );
 }
