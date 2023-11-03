@@ -15,6 +15,8 @@ class _LoginPageState extends State<LoginPage> {
     return loginRegisterPages('assets/w.png', context,loginHomeBox);
   }
 }
+final username = TextEditingController();
+final password = TextEditingController();
 
 Container loginHomeBox(BuildContext context) {
   return Container(
@@ -32,15 +34,15 @@ Container loginHomeBox(BuildContext context) {
         const SizedBox(
           height: 40,
         ),
-        fieldButtons("Username"),
+        fieldButtons("Username",username,false),
         const SizedBox(
           height: 23,
         ),
-        fieldButtons("Password"),
+        fieldButtons("Password",password,true),
         const SizedBox(
           height: 23,
         ),
-        logInButton(),
+        logInButton(username,password),
         const SizedBox(
           height: 15,
         ),
@@ -52,7 +54,7 @@ Container loginHomeBox(BuildContext context) {
         const SizedBox(
           height: 15,
         ),
-        registrationButton(context,register)
+        registrationButton(context,register,"Register Now")
       ],
     ),
   );

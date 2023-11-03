@@ -14,6 +14,13 @@ class _RegisterPageState extends State<RegisterPage> {
     return loginRegisterPages('assets/w2.png', context,registerHomeBox);
   }
 }
+final username = TextEditingController();
+final password = TextEditingController();
+final passwordConfirm = TextEditingController();
+final email = TextEditingController();
+
+
+
 
 Container registerHomeBox(BuildContext context) {
   return Container(
@@ -29,23 +36,23 @@ Container registerHomeBox(BuildContext context) {
         const SizedBox(
           height: 15,
         ),
-        fieldButtons("Email"),
+        fieldButtons("Email",email,false),
         const SizedBox(
           height: 20,
         ),
-        fieldButtons("Username"),
+        fieldButtons("Username",username,false),
         const SizedBox(
           height: 20,
         ),
-        fieldButtons("Password"),
+        fieldButtons("Password",password,true),
         const SizedBox(
           height: 15,
         ),
-        fieldButtons("Confirm Password"),
+        fieldButtons("Confirm Password",passwordConfirm,true),
         const SizedBox(
           height: 20,
         ),
-        registrationButton(context,register),
+        registrationButton(context,register,"Register"),
         const SizedBox(
           height: 15,
         ),

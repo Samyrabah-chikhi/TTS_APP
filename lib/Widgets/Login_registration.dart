@@ -25,7 +25,7 @@ Scaffold loginRegisterPages(String pictures,BuildContext context,Function(BuildC
 
 //Buttons :
 
-Container fieldButtons(String name) {
+Container fieldButtons(String name,TextEditingController controller,bool pwd) {
   return Container(
     width: 230,
     height: 35,
@@ -39,6 +39,8 @@ Container fieldButtons(String name) {
     child: Padding(
       padding: const EdgeInsets.only(left: 10.0),
       child: TextField(
+        obscureText: pwd,
+        controller: controller,
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: name,
@@ -48,7 +50,7 @@ Container fieldButtons(String name) {
   );
 }
 
-GestureDetector logInButton() {
+GestureDetector logInButton(TextEditingController username,TextEditingController password) {
   return GestureDetector(
     child: Container(
       width: 245,
@@ -71,7 +73,7 @@ GestureDetector logInButton() {
 }
 
 
-GestureDetector registrationButton(BuildContext context,Function(BuildContext) whenTap) {
+GestureDetector registrationButton(BuildContext context,Function(BuildContext) whenTap,String name) {
   return GestureDetector(
     child: Container(
         width: 175,
@@ -81,10 +83,10 @@ GestureDetector registrationButton(BuildContext context,Function(BuildContext) w
           border: Border.all(),
           borderRadius: BorderRadius.circular(4),
         ),
-        child: const Center(
+        child: Center(
           child: Text(
-            "Register",
-            style: TextStyle(color: Colors.black, fontSize: 16),
+            name,
+            style: const TextStyle(color: Colors.black, fontSize: 16),
           ),
         )),
     onTap: () {
@@ -124,7 +126,7 @@ GestureDetector forgotPasswordText() {
         style: TextStyle(
             color: Colors.black, fontSize: 14, fontWeight: FontWeight.w500)),
     onTap: () {
-      print("Nsit koulch");
+      print("Password forgotten");
       //Forgetting password logic
     },
   );
